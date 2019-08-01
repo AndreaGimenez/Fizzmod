@@ -1,31 +1,27 @@
-/*hacer una etiqueta <a> en HTML
-agarrarla con jsasignarle un evento click
-el callback del click....
+let a = document.getElementById("ancora");
+let url = a.href
 
-*/
-
-var a = document.getElementById("ancora");
-var parr = document.createElement("p");
-var nuevo_div = document.createElement("div")
-var btn_aceptar = document.createElement("button")
-var btn_cancelar = document.createElement("button")
+let parr = document.createElement("p");
+parr.innerHTML = "esta seguro que quiere abandonar la pagina?"
+let nuevo_div = document.createElement("div")
+let btn_aceptar = document.createElement("button")
+btn_aceptar.innerText = "ACEPTAR"
+let btn_cancelar = document.createElement("button")
+btn_cancelar.innerText = "CANCELAR"
+let frgt = document.createDocumentFragment();
 
 a.addEventListener("click", e => {
     e.preventDefault()
-    parr.innerHTML = "esta seguro que quiere abandonar la pagina?"
-    nuevo_div.appendChild(parr)
-    btn_aceptar.innerText = "ACEPTAR"
-    btn_cancelar.innerText = "CANCELAR"
-    nuevo_div.appendChild(btn_aceptar)
-    nuevo_div.appendChild(btn_cancelar)
+    frgt.appendChild(parr)
+    frgt.appendChild(btn_aceptar)
+    frgt.appendChild(btn_cancelar)
+    nuevo_div.appendChild(frgt)
     document.body.appendChild(nuevo_div)
-    btn_aceptar.addEventListener("click", e => {
-    })
 })
 
 btn_cancelar.addEventListener("click", e => {
   document.body.removeChild(nuevo_div)
 })
 btn_aceptar.addEventListener("click", e => {
-  console.dir(a)
+  window.location.href=url
 })
