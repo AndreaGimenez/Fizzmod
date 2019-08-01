@@ -1,3 +1,9 @@
+/*hacer una etiqueta <a> en HTML
+agarrarla con jsasignarle un evento click
+el callback del click....
+
+*/
+
 let a = document.getElementById("ancora");
 let url = a.href
 
@@ -12,11 +18,7 @@ let frgt = document.createDocumentFragment();
 
 a.addEventListener("click", e => {
     e.preventDefault()
-    frgt.appendChild(parr)
-    frgt.appendChild(btn_aceptar)
-    frgt.appendChild(btn_cancelar)
-    nuevo_div.appendChild(frgt)
-    document.body.appendChild(nuevo_div)
+    crear_nuevo_div()
 })
 
 btn_cancelar.addEventListener("click", e => {
@@ -25,3 +27,11 @@ btn_cancelar.addEventListener("click", e => {
 btn_aceptar.addEventListener("click", e => {
   window.location.href=url
 })
+
+const crear_nuevo_div = () => {
+  frgt.appendChild(parr)
+  frgt.appendChild(btn_aceptar)
+  frgt.appendChild(btn_cancelar)
+  nuevo_div.appendChild(frgt)
+  document.body.appendChild(nuevo_div)
+}
